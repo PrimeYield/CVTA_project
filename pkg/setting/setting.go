@@ -2,7 +2,9 @@ package setting
 
 import (
 	"log"
+	"time"
 
+	"github.com/lestrrat-go/jwx/v2/jwa"
 	"github.com/spf13/viper"
 )
 
@@ -14,6 +16,13 @@ type DatabaseSetting struct {
 	MongodbHost string
 	MongodbPort string
 	Mongodb_db  string
+}
+
+type JWTSetting struct {
+	Algorithm jwa.SignatureAlgorithm
+	Secret string
+	Issuer string
+	Expire time.Duration
 }
 
 type Setting struct {

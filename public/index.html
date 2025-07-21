@@ -1,44 +1,28 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <title>運動記錄器</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; }
-    .hidden { display: none; }
-    input, select, button { margin: 5px 0; display: block; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
-
-  <div id="login">
-    <h2>登入</h2>
-    <input type="text" id="username" placeholder="帳號">
-    <input type="password" id="password" placeholder="密碼">
-    <button onclick="login()">登入</button>
-    <p id="login-error" style="color:red;"></p>
-  </div>
-
-  <div id="main" class="hidden">
-    <h2>基本資料</h2>
-    <input type="number" id="height" placeholder="身高 (cm)">
-    <input type="number" id="weight" placeholder="體重 (kg)">
-
-    <h2>選擇運動</h2>
-    <select id="exercise">
-      <option value="situp">仰臥起坐</option>
-      <option value="pushup">伏地挺身</option>
-      <option value="squat">深蹲</option>
-    </select>
-
-    <input type="number" id="count" placeholder="完成的次數">
-    <button onclick="calculate()">計算</button>
-
-    <h3>結果</h3>
-    <p id="result"></p>
-  </div>
-
-  <script src="script.js"></script>
-
+    <!-- <h1>{{ .message }}</h1> -->
+    <p>這是一個由 Go Gin 框架渲染的 HTML 頁面。</p>
+    <p>目前時間是：{{ .count }}</p>
 </body>
 </html>

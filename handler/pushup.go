@@ -11,6 +11,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+//07.21計畫新增Token攜帶login後的username
 func CreatePushupRecordHandler(c *gin.Context) {
 	pushupRecord := models.Pushup{}
 	if err := c.ShouldBindJSON(&pushupRecord); err != nil {
@@ -51,8 +52,13 @@ func UpdatePushupRecordHandler (c *gin.Context){
 		log.Printf("package main UpdateRecord error: %v",err)
 		return
 	}
+	newRecord,err := logic.GetPushupRecordByID(objID)
+	if err != nil {
+		log.Printf("package handler Update Get error:%v",err)
+	}
 	c.JSON(http.StatusOK,gin.H{
-		"message": "good action",
-		"id": objID.Hex(),
+		// "message": "good action",
+		// "id": objID.Hex(),
+		"count": newRecord.Count,
 	})
 }

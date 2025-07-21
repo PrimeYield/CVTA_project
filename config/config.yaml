@@ -6,3 +6,8 @@ Database:
   MongodbHost: 127.0.0.1
   MongodbPort: 27017
   Mongodb_db: Exercise
+
+JWT:
+  Secret: himitsu_do_not_expose_very_important_my_super_key_need_change_sometimes
+  Issuer: my_blog_api_com
+  Expire: 7200s

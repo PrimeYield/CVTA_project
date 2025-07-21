@@ -9,6 +9,7 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
+	"github.com/lestrrat-go/jwx/v2/jwa"
 )
 
 func setupSetting() error {
@@ -24,6 +25,12 @@ func setupSetting() error {
 	if err != nil {
 		log.Printf("package main setupSetting \"Database\" error: %v",err)
 	}
+	err = setting.ReadSection("JWT", &global.JWTSetting)
+	if err != nil {
+		log.Printf("package main setupSetting \"JWT\" error: %v",err)
+		return err
+	}
+	global.JWTSetting.Algorithm = jwa.HS256
 	return nil
 }
 
@@ -51,6 +58,8 @@ func main(){
 
 	user := r.Group("/user")
 	{
+		user.POST("/singup",handler.SingupHandler)
+		user.POST("/login",handler.LoginHandler)
 		user.GET("/records/:username", handler.GetAllRecordHandler)
 	}
 

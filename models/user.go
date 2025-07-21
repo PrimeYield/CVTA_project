@@ -10,6 +10,8 @@ type User struct {
 	ID primitive.ObjectID `bson:"_id,omitempty" json:"id,omitempty"`
 	Username string `bson:"username" json:"username"`
 	Password string `bson:"password" json:"password"`
+	Height float64 `bson:"height" json:"height"`
+	Weight float64 `bson:"weight" json:"weight"`
 	CreateDate string `bson:"create_date" json:"create_date"`
 	LoginTimes int `bson:"login_times" json:"login_times"`
 }
