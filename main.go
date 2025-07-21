@@ -44,6 +44,16 @@ func main(){
 	r := gin.Default()
 	port := global.ServerSetting.Port
 	
+	r.Static("public", "./public")
+	r.GET("/", func(c *gin.Context) {
+	c.File("./public/index.html")
+	})
+
+	user := r.Group("/user")
+	{
+		user.GET("/records/:username", handler.GetAllRecordHandler)
+	}
+
 	pushup := r.Group("/pushup")
 	{
 		pushup.POST("/start", handler.CreatePushupRecordHandler)
